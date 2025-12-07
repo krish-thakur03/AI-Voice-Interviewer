@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import Avatar3D from './components/Avatar3D';
 import './index.css';
 
-const socket = io('http://localhost:5000', {
+const socket = io(import.meta.env.VITE_API_URL || 'http://localhost:5000', {
   reconnection: true,
   reconnectionAttempts: 5,
   reconnectionDelay: 1000,
