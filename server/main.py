@@ -10,7 +10,15 @@ from routes.socket import register_socket_events
 import db  # noqa: F401
 
 # ─── FastAPI app ─────────────────────────────────────────────────────
+
+
+
 app = FastAPI(title="AI Voice Interviewer API")
+
+@app.get("/")
+async def home():
+    return {"message": "AI Voice Interview Backend is Running 🚀"}
+
 
 app.add_middleware(
     CORSMiddleware,
