@@ -22,7 +22,7 @@ async def home():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS or ["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -33,7 +33,7 @@ app.include_router(http_router)
 # ─── Socket.IO ───────────────────────────────────────────────────────
 sio = socketio.AsyncServer(
     async_mode="asgi",
-    cors_allowed_origins=ALLOWED_ORIGINS or "*",
+    cors_allowed_origins=ALLOWED_ORIGINS,
 )
 register_socket_events(sio)
 

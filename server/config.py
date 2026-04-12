@@ -9,7 +9,8 @@ PORT = int(os.getenv("PORT", "5000"))
 # ─── CORS ────────────────────────────────────────────────────────────
 ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "http://localhost:5000",
+    # "http://localhost:5000",
+    "https://ai-voice-interviewer-ten.vercel.app",
     os.getenv("CLIENT_URL"),
 ]
 ALLOWED_ORIGINS = [origin for origin in ALLOWED_ORIGINS if origin]
