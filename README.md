@@ -15,7 +15,7 @@ A free AI-powered voice interviewer for practicing interview skills.
 | Component | Technology |
 |-----------|------------|
 | Frontend | React + Vite |
-| Backend | Node.js + Express |
+| Backend | Python (FastAPI + Socket.IO) |
 | Real-time | Socket.io |
 | Speech | Web Speech API (Browser) |
 | AI | Google Gemini (Free) or Fallback |
@@ -28,19 +28,20 @@ A free AI-powered voice interviewer for practicing interview skills.
 2. Click "Create API Key"
 3. Copy the key
 
-### 2. Setup Server
+### 2. Setup Server (Python)
 
 ```bash
 cd server
-npm install
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
 
 # Create .env file
 copy .env.example .env
 
 # Add your Gemini API key to .env (optional)
-# If you don't add it, the app will use predefined questions
 
-npm run dev
+python -m uvicorn main:asgi_app --reload --port 5000
 ```
 
 ### 3. Setup Client
@@ -84,8 +85,8 @@ If Gemini doesn't work in your region:
 ```
 ai voice interviewer/
 ├── server/
-│   ├── index.js        # Express + Socket.io + AI logic
-│   ├── package.json
+│   ├── main.py         # FastAPI + Socket.IO + AI logic
+│   ├── requirements.txt
 │   └── .env.example
 │
 ├── client/
